@@ -1,0 +1,18 @@
+<div ng-controller="UsersController as UC">
+  {{UC}}
+
+  <h1>Register</h1>
+  First Name: <input type="text" name="first_name" ng-model="UC.newUser.first_name"><br />
+  Last Name: <input type="text" name="last_name" ng-model="UC.newUser.last_name"><br />
+  Email: <input type="text" name="email" ng-model="UC.newUser.email"><br />
+  Password: <input type="password" name="password" ng-model="UC.newUser.password"><br />
+  Confrim Password: <input type="password" name="confirm_password" ng-model="UC.newUser.confirm_password"><br />
+  <button ng-click="UC.register()">Register</button>
+<p ng-repeat='error in UC.errors' ng-bind='UC.errors'>
+</p>
+  <h1>Login</h1>
+  Email: <input type="text" name="email" ng-model="UC.loginUser.email"><br />
+  Password: <input type="password" name="password" ng-model="UC.loginUser.password"><br />
+  <button ng-click="UC.login()">Login</button>
+
+</div>

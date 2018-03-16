@@ -1,0 +1,22 @@
+<div ng-controller="UsersController as UC">
+  Welcome {{UC.user.first_name}}
+  <button ng-click="UC.logout()">Log Out</button>
+  <table>
+    <th>
+      <td>
+        Name
+      </td>
+      <td>
+        Email
+      </td>
+    </th>
+    <tr ng-repeat="user in UC.allUsers">
+      <td>
+        {{user.first_name}} {{user.last_name}}
+      </td>
+      <td>
+        {{user.email}}
+      </td>
+    </tr>
+  </table>
+</div>
