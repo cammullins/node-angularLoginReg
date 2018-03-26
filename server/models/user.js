@@ -4,6 +4,7 @@ var validateEmail = function(email){
   return re.test(email);
 }
 
+//mongoose schema setup
 var UserSchema = new mongoose.Schema({
   first_name: {type: String, required: true, minlength: 2},
   last_name: {type: String, required: true, minlength: 2},
@@ -11,10 +12,11 @@ var UserSchema = new mongoose.Schema({
   password: {type: String, required: true}
 }, {timestamps: true})
 
-
+//'pre' is a mongo function, work with bcrypt gen salt
 UserSchema.pre('save', function(done){
   var user = this;
   if(user.password){
+    //start of bcrypt function
     bcrypt.genSalt(10, function(err, salt){
       console.log(salt, 'in pre save function');
       bcrypt.hash(user.password, salt, function(err, hash){
